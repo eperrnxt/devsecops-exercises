@@ -75,16 +75,16 @@ jobs:
   #         load: true
   #         tags: ${{ matrix.project }}:latest
 
-  #     - name: Generate docker SBOMs
-  #       run: >
-  #         cdxgen
-  #         --type docker
-  #         --format json
-  #         --spec-version="1.5"
-  #         --project-name="${{ project }}"
-  #         --project-version="build-${{ github.run_number }}"
-  #         -o "${{ project }}-docker_bom.json"
-  #         image:tag
+      - name: Generate docker SBOMs
+        run: >
+           cdxgen
+           --type docker
+           --format json
+           --spec-version="1.5"
+           --project-name="${{ project }}"
+           --project-version="build-${{ github.run_number }}"
+           -o "${{ project }}-docker_bom.json"
+           image:tag
 
   #     - name: upload Artifacts
   #       uses: actions/upload-artifact@v4
